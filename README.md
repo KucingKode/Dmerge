@@ -14,7 +14,7 @@ Dmerge is a small javascript library to **help you merge same formatted data in 
 
 ## 📚 Motivation
 
-Dmerge was created to **help you to configurations and data with same format**. One amazing implementation of Dmerge is [Cithak template manager](https://KucingKode.github.io/Cithak), by using Dmerge, cithak can easily merge two template configuration files and merge two templates into a new working template.
+Dmerge was created to **help you merge same formatted configurations and data**. One amazing implementation of Dmerge is [Cithak template manager](https://KucingKode.github.io/Cithak), by using Dmerge, cithak can easily merge template configuration files and merge two templates into a new working template.
 
 ## 📂 Installation
 
