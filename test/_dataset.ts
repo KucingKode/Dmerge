@@ -39,7 +39,7 @@ export const json = {
   data1: JSON.stringify(obj.object1),
   data2: JSON.stringify(obj.object2),
   merged: obj.mergedObject,
-  mergedstr: JSON.stringify(obj.mergedObject)
+  mergedstr: JSON.stringify(obj.mergedObject, null, 2)
 }
 
 export const env = {

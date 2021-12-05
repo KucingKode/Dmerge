@@ -1,12 +1,13 @@
 import {describe, test, expect} from '@jest/globals'
 
-import * as utilities from '../src/utilities'
+import {deepMerge} from '../src/utilities'
+import {createMerger} from '../build/index'
 import {object} from './_dataset'
 
 describe('test deepMerge function', () => {
   let {object1, object2, mergedObject} = object()
 
-  const merged = utilities.deepMerge(object1, object2)
+  const merged = deepMerge(object1, object2)
 
   test('deepMerge should return object', () => {
     expect(typeof merged).toBe('object')
@@ -21,7 +22,7 @@ describe('test deepMerge function', () => {
 describe('test createMerger function', () => {
   let {object1, object2, mergedObject} = object()
 
-  const merge = utilities.createMerger({
+  const merge = createMerger({
     parse: JSON.parse,
     stringify: JSON.stringify
   })

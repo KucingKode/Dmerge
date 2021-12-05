@@ -10,7 +10,7 @@ export const mergeYaml = createMerger({
 
 export const mergeJson = createMerger({
   parse: JSON.parse,
-  stringify: JSON.stringify
+  stringify: (obj: object) => JSON.stringify(obj, null, 2)
 })
 
 export const mergeToml = createMerger({
