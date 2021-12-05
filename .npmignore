@@ -2,6 +2,7 @@ src
 test
 test-pkg
 build/_types
+build/*.map
 node_modules
 .gitignore
 jest.config.js
