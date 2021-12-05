@@ -1,0 +1,56 @@
+{
+  "name": "datamerge",
+  "version": "0.1.0",
+  "description": "Merge some string representation of data in json, yaml, toml, and your formats",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" npx jest"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@types/jest": "^27.0.3",
+    "jest": "^27.4.3",
+    "rollup": "^2.3.4",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.0",
+    "ts-jest": "^27.0.7",
+    "tslib": "^2.0.0",
+    "typescript": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KucingKode/datamerge"
+  },
+  "homepage": "https://github.com/KucingKode/datamerge",
+  "bugs": {
+    "url": "https://github.com/KucingKode/datamerge/issues"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "keywords": [
+    "data",
+    "merge",
+    "deep-merge",
+    "merge-string",
+    "merge-data",
+    "string",
+    "object",
+    "utility",
+    "library"
+  ],
+  "author": "KucingKode",
+  "license": "MIT",
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "yaml": "^1.10.2"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "declaration": true,
+    "moduleResolution": "node",
+    "outDir": "./_types"
+  },
+  "include": ["src/*"],
+  "exclude": ["node_modules/*", "build/*"]
+}
