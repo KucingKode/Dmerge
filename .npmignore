@@ -6,4 +6,7 @@ node_modules
 .gitignore
 jest.config.js
 rollup.config.js
+logo.svg
 tsconfig.json
+CODE_OF_CONDUCT.md
+CHANGELOG.md

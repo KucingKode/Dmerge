@@ -1,14 +1,14 @@
 {
-  "name": "datamerge",
+  "name": "dmergejs",
   "version": "0.1.0",
-  "description": "Merge some string representation of data in json, yaml, toml, and your formats",
+  "description": "Small library to help you merge same formatted data in a string",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "types": "build/index.d.ts",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build && npm test",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" npx jest"
   },
   "devDependencies": {
@@ -27,11 +27,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KucingKode/datamerge"
+    "url": "https://github.com/KucingKode/Dmerge"
   },
-  "homepage": "https://github.com/KucingKode/datamerge",
+  "homepage": "https://github.com/KucingKode/Dmerge",
   "bugs": {
-    "url": "https://github.com/KucingKode/datamerge/issues"
+    "url": "https://github.com/KucingKode/Dmerge/issues"
   },
   "engines": {
     "node": ">=10.0.0"
