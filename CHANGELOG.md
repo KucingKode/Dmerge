@@ -1,5 +1,12 @@
 # Dmerge Changelog
 
+## 0.2.0
+
+- add merge options
+- add json merge options
+- add yaml merge options
+- update typedef
+
 ## 0.1.0
 
 - createMerge function
