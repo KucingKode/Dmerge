@@ -1,6 +1,6 @@
 {
   "name": "dmergejs",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Small library to help you merge same formatted data in a string",
   "main": "build/index.js",
   "module": "build/index.es.js",
