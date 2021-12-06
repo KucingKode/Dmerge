@@ -1,8 +1,6 @@
-import {describe, test, expect} from '@jest/globals'
-
-import {deepMerge} from '../src/utilities'
-import {createMerger} from '../build/index'
-import {object} from './_dataset'
+const {object} = require('./_dataset')
+const {deepMerge} = require('../src/utilities')
+const {createMerger} = require('../build/index')
 
 describe('test deepMerge function', () => {
   let {object1, object2, mergedObject} = object()

@@ -1,10 +1,13 @@
-export type parseFunc = (str: string) => object
-export type stringifyFunc = (obj: object) => string
+export interface parseFunc<Options> {
+  (str: string, options?: Options): object
+}
+export interface stringifyFunc<Options> {
+  (obj: object, option?: Options): string
+}
 
-export type MergeFunc = (
-  target: string,
-  ...sources: string[]
-) => {
-  data: object
-  string: () => string
+export interface mergeFunc<Options> {
+  (target: string, sources: string | string[], options?: Options): {
+    data: object
+    string: () => string
+  }
 }

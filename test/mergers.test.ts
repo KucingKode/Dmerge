@@ -1,7 +1,5 @@
-import {describe, test, expect} from '@jest/globals'
-
-import * as mergers from '../build/index'
-import * as dataset from './_dataset'
+const mergers = require('../build/index')
+const dataset = require('./_dataset')
 
 const formats = ['json', 'env', 'list', 'yaml', 'toml']
 

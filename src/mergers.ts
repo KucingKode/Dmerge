@@ -3,22 +3,26 @@ import * as TOML from '@iarna/toml'
 
 import {createMerger} from './utilities'
 
-export const mergeYaml = createMerger({
+export const mergeYaml = createMerger<YAML.Options>({
   parse: YAML.parse,
   stringify: YAML.stringify
 })
 
-export const mergeJson = createMerger({
-  parse: JSON.parse,
-  stringify: (obj: object) => JSON.stringify(obj, null, 2)
+interface jsonOptions {
+  replacer?: (this: any, key: string, value: any) => any
+  space?: number
+}
+export const mergeJson = createMerger<jsonOptions>({
+  parse: (str) => JSON.parse(str),
+  stringify: (obj, options) => JSON.stringify(obj, options?.replacer, options?.space)
 })
 
-export const mergeToml = createMerger({
+export const mergeToml = createMerger<undefined>({
   parse: TOML.parse,
   stringify: TOML.stringify
 })
 
-export const mergeEnv = createMerger({
+export const mergeEnv = createMerger<undefined>({
   parse: (str) => {
     const data = {}
 
@@ -45,7 +49,7 @@ export const mergeEnv = createMerger({
   }
 })
 
-export const mergeList = createMerger({
+export const mergeList = createMerger<undefined>({
   parse: (str) => {
     const obj = {}
     str.split('\n').forEach((val) => (obj[val] = true))

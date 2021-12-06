@@ -9,7 +9,7 @@
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "prepublishOnly": "npm run build && npm test",
-    "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" npx jest"
+    "test": "npx jest"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.0.0",

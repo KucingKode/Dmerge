@@ -1,4 +1,7 @@
-export const object = () => {
+const YAML = require('yaml')
+const TOML = require('@iarna/toml')
+
+exports.object = () => {
   return JSON.parse(
     JSON.stringify({
       object1: {
@@ -34,22 +37,23 @@ export const object = () => {
 
 // --------------------- data strings ---------------------------------
 
-const obj = object()
-export const json = {
+const obj = exports.object()
+
+exports.json = {
   data1: JSON.stringify(obj.object1),
   data2: JSON.stringify(obj.object2),
   merged: obj.mergedObject,
-  mergedstr: JSON.stringify(obj.mergedObject, null, 2)
+  mergedstr: JSON.stringify(obj.mergedObject)
 }
 
-export const env = {
+exports.env = {
   data1: 'PORT=3000\nPATH=./test\nSTATUS=OK',
   data2: 'LIMIT=60\nSTATUS=ERR',
   merged: {PORT: '3000', PATH: './test', STATUS: 'ERR', LIMIT: '60'},
   mergedstr: 'PORT=3000\nPATH=./test\nSTATUS=ERR\nLIMIT=60'
 }
 
-export const list = {
+exports.list = {
   data1: 'a\nb\nc',
   data2: 'c\nd',
   merged: {
@@ -61,68 +65,43 @@ export const list = {
   mergedstr: 'a\nb\nc\nd'
 }
 
-export const yaml = {
-  data1: `name: Martin D'vloper
-job: [developer, programmer]
-skills:
-  - python
-  - perl
-  - pascal`,
-  data2: `name: Martin Developer
-job: [coder]
-skills:
-  - html
-  - css`,
-  merged: {
-    name: 'Martin Developer',
-    job: ['developer', 'programmer', 'coder'],
-    skills: ['python', 'perl', 'pascal', 'html', 'css']
-  },
-  mergedstr: `name: Martin Developer
-job:
-  - developer
-  - programmer
-  - coder
-skills:
-  - python
-  - perl
-  - pascal
-  - html
-  - css
-`
+exports.yaml = {
+  data1: YAML.stringify(obj.object1),
+  data2: YAML.stringify(obj.object2),
+  merged: obj.mergedObject,
+  mergedstr: YAML.stringify(obj.mergedObject)
 }
 
-export const toml = {
-  data1: `[identity]
-NAME = "Martin D'vloper"
-AGE = 42
-JOB = ["developer", "programmer"]
-
-[skills]
-GOOD = ["html", "css"]
-BAD = ["C++"]`,
-
-  data2: `[identity]
-NAME = "Martin Developer"
-JOB = ["coder"]
-
-[skills]
-GOOD = ["js"]`,
-  merged: {
+const tomlObj = {
+  object1: {
+    identity: {
+      NAME: 'Martin Dev',
+      JOB: ['developer', 'programmer']
+    },
+    skills: {GOOD: ['html'], BAD: ['C++']}
+  },
+  object2: {
     identity: {
       NAME: 'Martin Developer',
       AGE: 42,
-      JOB: ['developer', 'programmer', 'coder']
+      JOB: ['coder']
+    },
+    skills: {GOOD: ['css', 'js']}
+  },
+
+  mergedObject: {
+    identity: {
+      NAME: 'Martin Developer',
+      JOB: ['developer', 'programmer', 'coder'],
+      AGE: 42
     },
     skills: {GOOD: ['html', 'css', 'js'], BAD: ['C++']}
-  },
-  mergedstr: `[identity]
-NAME = "Martin Developer"
-AGE = 42
-JOB = [ "developer", "programmer", "coder" ]
+  }
+}
 
-[skills]
-GOOD = [ "html", "css", "js" ]
-BAD = [ "C++" ]
-`
+exports.toml = {
+  data1: TOML.stringify(tomlObj.object1),
+  data2: TOML.stringify(tomlObj.object2),
+  merged: tomlObj.mergedObject,
+  mergedstr: TOML.stringify(tomlObj.mergedObject)
 }

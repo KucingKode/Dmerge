@@ -1,14 +1,20 @@
-import type {MergeFunc, parseFunc, stringifyFunc} from './types'
+import type {mergeFunc, parseFunc, stringifyFunc} from './types'
 
-export function createMerger(args: {parse: parseFunc; stringify: stringifyFunc}): MergeFunc {
+export function createMerger<Options = object>(args: {
+  parse: parseFunc<Options>
+  stringify: stringifyFunc<Options>
+}): mergeFunc<Options> {
   const {parse, stringify} = args
 
-  return (target, ...sources) => {
-    const data = deepMerge(parse(target), ...sources.map((src) => parse(src)))
+  return (target, sources, options?: Options) => {
+    console.log(sources)
+    if (typeof sources === 'string') sources = [sources]
+
+    const data = deepMerge(parse(target, options), ...sources.map((src) => parse(src, options)))
 
     return {
       data: data,
-      string: () => stringify(data)
+      string: () => stringify(data, options)
     }
   }
 }
